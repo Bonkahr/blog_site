@@ -1,3 +1,4 @@
+from doctest import FAIL_FAST
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -21,4 +22,20 @@ class Post(models.Model):
     
     def __str__(self) -> str:
         return self.title
+        
+
+class Comment(models.Model):
+    post = models.ForeignKey(Post, related_name='comments', on_delete=models.CASCADE)
+    name = models.CharField(max_length=50)
+    email = models.EmailField()
+    body = models.TextField()
+    created_on = models.DateTimeField(auto_now=True)
+    active = models.BooleanField(default=False)
+
+    class Meta:
+        ordering = ['-created_on']
+    
+    def __str__(self) -> str:
+        return f'Comment {self.body} by {self.name}'
+
 
