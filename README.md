@@ -1,1 +1,2 @@
-# blog_site Django project.
+# blog_site.
+A Python-Django backend site based on 'djangocentral.com' Blog project. 
