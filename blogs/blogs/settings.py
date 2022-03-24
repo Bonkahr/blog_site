@@ -22,6 +22,7 @@ TEMPLATES_DIRS = os.path.join(BASE_DIR, 'templates')
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = 'django-insecure-1(z0f9!#z!bh9#rk8^boaok1!wbm3(-2oso%a4wpyptmq!8y!#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -78,8 +79,12 @@ WSGI_APPLICATION = 'blogs.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'blog',
+        'USER': 'django',
+        'PASSWORD': 'django',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
@@ -108,7 +113,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Africa/Nairobi'
 
 USE_I18N = True
 
